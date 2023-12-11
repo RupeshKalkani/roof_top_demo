@@ -12,7 +12,7 @@ import 'package:roof_top_demo/service/user_service.dart';
 class LiveUserList extends StatelessWidget {
   LiveUserList({super.key});
 
-  final HomeController controller = Get.put(HomeController(),permanent: true);
+  final HomeController controller = Get.put(HomeController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {

@@ -14,7 +14,7 @@ class ResultBox extends StatelessWidget {
 
   ResultBox({super.key, this.chatModel});
 
-  final ChatController controller = Get.put(ChatController(),permanent: true);
+  final ChatController controller = Get.put(ChatController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
