@@ -83,11 +83,13 @@ class UserService {
         .where(
           "uid_list",
           arrayContainsAny: [PrefService.getUID()],
-        ).orderBy('last_msg_time',descending: true)
+        )
+        .orderBy('last_msg_time', descending: true)
         .snapshots();
   }
 
-  static Stream<DocumentSnapshot<Map<String, dynamic>>> getUsersStream(String uid) {
+  static Stream<DocumentSnapshot<Map<String, dynamic>>> getUsersStream(
+      String uid) {
     return _instance
         .collection(FirebaseKeys.users)
         .doc(uid.toString())

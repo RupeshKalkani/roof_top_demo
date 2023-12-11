@@ -15,7 +15,7 @@ class SpyBox extends StatelessWidget {
   final String? chatId;
 
   SpyBox({super.key, this.chatModel, this.roomStream, this.chatId});
-  final ChatController controller = Get.put(ChatController(),permanent: true);
+  final ChatController controller = Get.put(ChatController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,9 @@ class SpyBox extends StatelessWidget {
               ),
             ),
             Visibility(
-              visible: !isSenderMe && roomStream?.activeSpyId == chatId && roomStream?.lastMsgSender != PrefService.getUID(),
+              visible: !isSenderMe &&
+                  roomStream?.activeSpyId == chatId &&
+                  roomStream?.lastMsgSender != PrefService.getUID(),
               child: IconButton(
                 onPressed: () => controller.onSpyEditTap(chatModel!),
                 icon: Container(

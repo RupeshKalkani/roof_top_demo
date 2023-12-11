@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -55,21 +54,20 @@ class AppTextField extends StatelessWidget {
         (titleText ?? '').isEmpty
             ? const SizedBox()
             : Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  /// Header
+                  Text(
+                    titleText ?? '',
+                    style: styleW400S14.copyWith(
+                      color: AppColor.white,
+                    ),
+                  ),
 
-            /// Header
-            Text(
-              titleText ?? '',
-              style: styleW400S14.copyWith(
-                color: AppColor.white,
+                  /// Space
+                  const SizedBox(height: 8),
+                ],
               ),
-            ),
-
-            /// Space
-            const SizedBox(height: 8),
-          ],
-        ),
 
         /// Text Field
         ClipRRect(
@@ -122,19 +120,19 @@ class AppTextField extends StatelessWidget {
                     suffixIcon: suffixIconWidget ??
                         (suffixIcon != null
                             ? Material(
-                          color: Colors.transparent,
-                          child: InkWell(
-                            onTap: onSuffixTap,
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 16),
-                              child: Image.asset(
-                                suffixIcon!,
-                                height: 24,
-                                width: 24,
-                              ),
-                            ),
-                          ),
-                        )
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  onTap: onSuffixTap,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 16),
+                                    child: Image.asset(
+                                      suffixIcon!,
+                                      height: 24,
+                                      width: 24,
+                                    ),
+                                  ),
+                                ),
+                              )
                             : null),
                     suffixIconConstraints: const BoxConstraints(
                       maxHeight: 24,
@@ -151,11 +149,11 @@ class AppTextField extends StatelessWidget {
         (errorText ?? "").isEmpty
             ? const SizedBox()
             : Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            ErrorText(text: errorText),
-          ],
-        ),
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ErrorText(text: errorText),
+                ],
+              ),
       ],
     );
   }

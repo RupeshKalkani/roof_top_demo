@@ -6,7 +6,7 @@ import 'package:roof_top_demo/screen/register/register_controller.dart';
 import 'package:roof_top_demo/screen/register/register_screen.dart';
 import 'package:roof_top_demo/service/auth_service.dart';
 
-class LoginController extends GetxController{
+class LoginController extends GetxController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   String emailError = "";
@@ -28,10 +28,10 @@ class LoginController extends GetxController{
         pwd: passwordController.text,
       );
       if (result) {
-        HomeController controller = Get.put(HomeController(),permanent: true);
+        HomeController controller = Get.put(HomeController(), permanent: true);
         controller.init();
         Get.offAll(
-              () => HomeScreen(),
+          () => HomeScreen(),
           duration: 1.5.seconds,
           curve: Curves.ease,
         );
@@ -43,9 +43,9 @@ class LoginController extends GetxController{
 
   void onRegisterTap() {
     RegisterController controller =
-    Get.put(RegisterController(), permanent: true);
+        Get.put(RegisterController(), permanent: true);
     Get.to(
-          () => RegisterScreen(),
+      () => RegisterScreen(),
       duration: 1.5.seconds,
       curve: Curves.ease,
     );

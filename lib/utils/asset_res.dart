@@ -9,5 +9,4 @@ class AssetRes {
   ///__________________________________ images __________________________________///
   static const rightImg = "${images}right_img.png";
   static const wrongImg = "${images}wrong_img.png";
-
 }

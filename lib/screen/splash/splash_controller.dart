@@ -10,7 +10,6 @@ import 'package:roof_top_demo/service/auth_service.dart';
 import 'package:roof_top_demo/service/pref_service.dart';
 import 'package:roof_top_demo/utils/pref_keys.dart';
 
-
 class SplashController extends GetxController {
   bool isPageNavigate = false;
   final Duration splashDuration = 3.seconds;
@@ -23,11 +22,11 @@ class SplashController extends GetxController {
 
   Future<void> startActivity() async {
     Future.delayed(splashDuration, () {
-      if(AuthService.isLogin()){
-        HomeController controller = Get.put(HomeController(),permanent: true);
+      if (AuthService.isLogin()) {
+        HomeController controller = Get.put(HomeController(), permanent: true);
         controller.init();
         Get.offAll(() => HomeScreen());
-      }else{
+      } else {
         Get.offAll(() => LoginScreen());
       }
     });

@@ -58,7 +58,7 @@ class RegisterController extends GetxController {
         );
         LoginController loginController =
             Get.put(LoginController(), permanent: true);
-        HomeController controller = Get.put(HomeController(),permanent: true);
+        HomeController controller = Get.put(HomeController(), permanent: true);
         controller.init();
         Get.offAll(
           () => HomeScreen(),

@@ -13,7 +13,8 @@ import 'package:roof_top_demo/utils/asset_res.dart';
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
 
-  final RegisterController controller = Get.put(RegisterController(),permanent: true);
+  final RegisterController controller =
+      Get.put(RegisterController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
@@ -81,16 +82,21 @@ class RegisterScreen extends StatelessWidget {
                             : AssetRes.passwordInvisibleIcon,
                       ),
                       SizedBox(height: 10.w),
-                      SubmitButton(title: "Register",onTap: controller.onRegisterTap),
-
+                      SubmitButton(
+                          title: "Register", onTap: controller.onRegisterTap),
                       const Spacer(),
                       InkWell(
                         onTap: controller.onLoginTap,
                         child: Align(
                           alignment: Alignment.centerRight,
                           child: Padding(
-                            padding: EdgeInsets.only(bottom: 10.w,right: 5.w),
-                            child: Text("Login",style: styleW400S25.copyWith(fontWeight: FontWeight.w500,color: AppColor.white),),
+                            padding: EdgeInsets.only(bottom: 10.w, right: 5.w),
+                            child: Text(
+                              "Login",
+                              style: styleW400S25.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColor.white),
+                            ),
                           ),
                         ),
                       ),

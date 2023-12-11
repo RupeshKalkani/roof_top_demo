@@ -10,7 +10,7 @@ import 'package:roof_top_demo/screen/chat/chat_controller.dart';
 class CreateSpyBox extends StatelessWidget {
   CreateSpyBox({super.key});
 
-  final ChatController controller = Get.put(ChatController(),permanent: true);
+  final ChatController controller = Get.put(ChatController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class CreateSpyBox extends StatelessWidget {
 class CreateSpyDialog extends StatelessWidget {
   CreateSpyDialog({super.key});
 
-  final ChatController controller = Get.put(ChatController(),permanent: true);
+  final ChatController controller = Get.put(ChatController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {

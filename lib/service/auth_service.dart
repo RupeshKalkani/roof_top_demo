@@ -1,5 +1,3 @@
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:roof_top_demo/common_file/helpers.dart';
 import 'package:roof_top_demo/service/pref_service.dart';

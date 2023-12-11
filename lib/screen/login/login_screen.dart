@@ -14,7 +14,8 @@ import 'package:roof_top_demo/utils/asset_res.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
-  final LoginController controller = Get.put(LoginController(),permanent: true);
+  final LoginController controller =
+      Get.put(LoginController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +66,8 @@ class LoginScreen extends StatelessWidget {
                             : AssetRes.passwordInvisibleIcon,
                       ),
                       SizedBox(height: 10.w),
-                      SubmitButton(title: "Login",onTap: controller.onLoginTap),
+                      SubmitButton(
+                          title: "Login", onTap: controller.onLoginTap),
                       const Spacer(),
                       InkWell(
                         onTap: controller.onRegisterTap,

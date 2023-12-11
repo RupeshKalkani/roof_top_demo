@@ -52,48 +52,50 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 child: Column(
                   children: [
                     StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-                      stream: UserService.getUsersStream(PrefService.getUID()),
-                      builder: (context, userSnap) {
-                        if(userSnap.data == null){
-                          return const SizedBox();
-                        }
-                        UserModel userModel = UserModel.fromJson(userSnap.data?.data() ?? {});
-                        return Row(
-                          children: [
-                            SizedBox(width: 4.2.w),
-                            Expanded(
-                              child: Text(
-                                "Welcome ${userModel.name ?? ''} !",
-                                style: const TextStyle(
-                                  fontSize: 18,
+                        stream:
+                            UserService.getUsersStream(PrefService.getUID()),
+                        builder: (context, userSnap) {
+                          if (userSnap.data == null) {
+                            return const SizedBox();
+                          }
+                          UserModel userModel =
+                              UserModel.fromJson(userSnap.data?.data() ?? {});
+                          return Row(
+                            children: [
+                              SizedBox(width: 4.2.w),
+                              Expanded(
+                                child: Text(
+                                  "Welcome ${userModel.name ?? ''} !",
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(color: Colors.white),
-                              ),
-                              padding: EdgeInsets.symmetric(horizontal: 4.w,vertical: 1.w),
-                              child: Text(
-                                "Point ${userModel.totalPoint ?? '0'}",
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 16,
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(color: Colors.white),
+                                ),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 4.w, vertical: 1.w),
+                                child: Text(
+                                  "Point ${userModel.totalPoint ?? '0'}",
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                  ),
                                 ),
                               ),
-                            ),
-                            IconButton(
-                              onPressed: controller.onLogoutTap,
-                              icon: const Icon(
-                                Icons.logout,
-                                color: Colors.white,
+                              IconButton(
+                                onPressed: controller.onLogoutTap,
+                                icon: const Icon(
+                                  Icons.logout,
+                                  color: Colors.white,
+                                ),
                               ),
-                            ),
-                          ],
-                        );
-                      }
-                    ),
+                            ],
+                          );
+                        }),
                     TabBar(
                       tabs: [
                         SizedBox(

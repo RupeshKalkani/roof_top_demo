@@ -7,7 +7,7 @@ import 'package:roof_top_demo/utils/asset_res.dart';
 class RightWrongBtn extends StatelessWidget {
   RightWrongBtn({super.key});
 
-  final ChatController controller = Get.put(ChatController(),permanent: true);
+  final ChatController controller = Get.put(ChatController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {

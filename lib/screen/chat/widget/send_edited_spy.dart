@@ -15,7 +15,7 @@ class SendEditedSpy extends StatelessWidget {
 
   SendEditedSpy({super.key, this.spyImg});
 
-  final ChatController controller = Get.put(ChatController(),permanent: true);
+  final ChatController controller = Get.put(ChatController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +37,7 @@ class SendEditedSpy extends StatelessWidget {
                 onTap: () => Get.to(
                   () => ImgViewer(image: spyImg?.path, isFileImg: true),
                 ),
-                child: spyImg == null
-                    ? const SizedBox()
-                    : Image.file(spyImg!),
+                child: spyImg == null ? const SizedBox() : Image.file(spyImg!),
               ),
               SizedBox(height: 2.w),
               SubmitButton(
