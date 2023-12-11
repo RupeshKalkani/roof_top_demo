@@ -30,7 +30,8 @@ class ChatController extends GetxController {
   final TextEditingController characterController = TextEditingController();
   String characterError = "";
 
-  Future<void> init({UserModel? userModel}) async { loader = false;
+  Future<void> init({UserModel? userModel}) async {
+    loader = false;
     receiverModel = userModel ?? receiverModel;
     await getRoomDetail();
   }
@@ -84,13 +85,14 @@ class ChatController extends GetxController {
         createDate: createAt,
         senderId: PrefService.getUID(),
       );
-      await ChatService.addNewMsg(chatModel, roomModel.roomId.toString(),docId: spyId);
+      await ChatService.addNewMsg(chatModel, roomModel.roomId.toString(),
+          docId: spyId);
 
       final RoomModel roomData = RoomModel(
         lastMsgTime: createAt,
         activeSpyId: spyId,
-        newMsg:
-            roomModel.newMsg ?? {receiverModel.uid.toString(): 1, PrefService.getUID(): 0},
+        newMsg: roomModel.newMsg ??
+            {receiverModel.uid.toString(): 1, PrefService.getUID(): 0},
         roomId: roomModel.roomId.toString(),
         spyCrater: PrefService.getUID(),
         tryCount: 0,
@@ -222,7 +224,7 @@ class ChatController extends GetxController {
     tempRoomModel.lastMsgTime = createAt;
     tempRoomModel.lastMsgSender = PrefService.getUID();
 
-    if(result || tempRoomModel.tryCount == 3){
+    if (result || tempRoomModel.tryCount == 3) {
       tempRoomModel.spyCrater = "null";
       tempRoomModel.activeSpyId = "null";
       final ChatModel alertModel = ChatModel(
@@ -233,7 +235,7 @@ class ChatController extends GetxController {
       );
       await ChatService.addNewMsg(alertModel, tempRoomModel.roomId.toString());
 
-      if(result){
+      if (result) {
         receiverModel.totalPoint = (receiverModel.totalPoint ?? 0) + 1;
         await UserService.updateUserData(receiverModel);
       }

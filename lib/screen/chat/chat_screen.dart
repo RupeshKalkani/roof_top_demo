@@ -94,7 +94,8 @@ class ChatScreen extends StatelessWidget {
                         builder: (con) {
                           if (roomModel.spyCrater.toString() == "null") {
                             return CreateSpyBox();
-                          } else if (roomModel.spyCrater == PrefService.getUID() &&
+                          } else if (roomModel.spyCrater ==
+                                  PrefService.getUID() &&
                               roomModel.lastMsgSender != PrefService.getUID()) {
                             return RightWrongBtn();
                           }

@@ -66,7 +66,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '601571570566',
     projectId: 'demos-f2f3e',
     storageBucket: 'demos-f2f3e.appspot.com',
-    androidClientId: '601571570566-o3uj9prt0t0brpc8jmo6nu8cgt8ghliq.apps.googleusercontent.com',
+    androidClientId:
+        '601571570566-o3uj9prt0t0brpc8jmo6nu8cgt8ghliq.apps.googleusercontent.com',
     iosBundleId: 'com.example.roofTopDemo',
   );
 
@@ -76,7 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '601571570566',
     projectId: 'demos-f2f3e',
     storageBucket: 'demos-f2f3e.appspot.com',
-    androidClientId: '601571570566-o3uj9prt0t0brpc8jmo6nu8cgt8ghliq.apps.googleusercontent.com',
+    androidClientId:
+        '601571570566-o3uj9prt0t0brpc8jmo6nu8cgt8ghliq.apps.googleusercontent.com',
     iosBundleId: 'com.example.roofTopDemo.RunnerTests',
   );
 }

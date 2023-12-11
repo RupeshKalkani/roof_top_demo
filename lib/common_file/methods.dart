@@ -18,28 +18,29 @@ String getRoomId(String? uid1, String? uid2) {
   }
 }
 
-
 Future<Uint8List?> getByteFromNetworkImg(String url) async {
-  try{
+  try {
     http.Response response = await http.get(
       Uri.parse(url),
     );
     return response.bodyBytes;
-  }catch(e){
+  } catch (e) {
     showErrorMsg(e.toString());
   }
   return null;
 }
 
 Future<File?> getFileFromUint8List(Uint8List data) async {
-  try{
+  try {
     final Directory tempDir = await getTemporaryDirectory();
 
-    final file = await File('${tempDir.path}/${DateTime.now().microsecondsSinceEpoch}.jpg').create();
+    final file = await File(
+            '${tempDir.path}/${DateTime.now().microsecondsSinceEpoch}.jpg')
+        .create();
     file.writeAsBytesSync(data);
 
     return file;
-  }catch(e){
+  } catch (e) {
     showErrorMsg(e.toString());
   }
   return null;

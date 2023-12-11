@@ -15,7 +15,7 @@ import 'package:roof_top_demo/service/user_service.dart';
 class MatchesList extends StatelessWidget {
   MatchesList({super.key});
 
-  final HomeController controller = Get.put(HomeController(),permanent: true);
+  final HomeController controller = Get.put(HomeController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
@@ -35,60 +35,63 @@ class MatchesList extends StatelessWidget {
           itemCount: roomList.length,
           itemBuilder: (con, index) {
             String userId = "";
-            if(roomList[index].uidList?[0] == PrefService.getUID()){
+            if (roomList[index].uidList?[0] == PrefService.getUID()) {
               userId = roomList[index].uidList?[1] ?? '';
-            }else{
+            } else {
               userId = roomList[index].uidList?[0] ?? '';
             }
             return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-              stream: UserService.getUsersStream(userId),
-              builder: (context, snapshot2) {
-
-                if(snapshot2.data == null){
-                  return const SizedBox();
-                }
-                UserModel userModel = UserModel.fromJson(snapshot2.data!.data()!);
-                return InkWell(
-                  onTap: () => controller.onOnlineUserTap(userModel),
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 5.33.w, left: 5.33.w),
-                    child: Row(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(right: 2.66.w),
-                          height: 10.w,
-                          width: 10.w,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColor.green,
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(
-                            userModel.name ?? 'User',
-                            style: styleW500S18.copyWith(color: AppColor.white),
-                          ),
-                        ),
-                        SizedBox(width: 2.66.w),
-                        Visibility(
-                          visible: false,
-                          // visible: (roomList[index].newMsg?[getUID()] ?? 0) != 0,
-                          child: Container(
+                stream: UserService.getUsersStream(userId),
+                builder: (context, snapshot2) {
+                  if (snapshot2.data == null) {
+                    return const SizedBox();
+                  }
+                  UserModel userModel =
+                      UserModel.fromJson(snapshot2.data!.data()!);
+                  return InkWell(
+                    onTap: () => controller.onOnlineUserTap(userModel),
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 5.33.w, left: 5.33.w),
+                      child: Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(right: 2.66.w),
+                            height: 10.w,
+                            width: 10.w,
                             decoration: const BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.red,
+                              color: AppColor.green,
                             ),
-                            padding: EdgeInsets.all(1.w),
-                            child: Text(roomList[index].newMsg?[PrefService.getUID()]?.toString() ?? ''),
                           ),
-                        ),
-                        SizedBox(width: 6.2.w),
-                      ],
+                          Expanded(
+                            child: Text(
+                              userModel.name ?? 'User',
+                              style:
+                                  styleW500S18.copyWith(color: AppColor.white),
+                            ),
+                          ),
+                          SizedBox(width: 2.66.w),
+                          Visibility(
+                            visible: false,
+                            // visible: (roomList[index].newMsg?[getUID()] ?? 0) != 0,
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.red,
+                              ),
+                              padding: EdgeInsets.all(1.w),
+                              child: Text(roomList[index]
+                                      .newMsg?[PrefService.getUID()]
+                                      ?.toString() ??
+                                  ''),
+                            ),
+                          ),
+                          SizedBox(width: 6.2.w),
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              }
-            );
+                  );
+                });
           },
         );
       },

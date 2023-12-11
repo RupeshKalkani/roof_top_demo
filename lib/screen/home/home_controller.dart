@@ -22,8 +22,7 @@ class HomeController extends GetxController {
     loader = true;
     update(['loader']);
     try {
-      final model = await UserService.getUserModel(
-          PrefService.getUID());
+      final model = await UserService.getUserModel(PrefService.getUID());
       if (model != null) {
         userData = model;
       }
@@ -52,8 +51,9 @@ class HomeController extends GetxController {
     );
   }
 
-  void onOnlineUserTap(UserModel user){
-    final ChatController controller = Get.put(ChatController(),permanent: true);
+  void onOnlineUserTap(UserModel user) {
+    final ChatController controller =
+        Get.put(ChatController(), permanent: true);
 
     controller.init(userModel: user);
     Get.to(() => ChatScreen());

@@ -1,5 +1,3 @@
-
-
 import 'package:get/get.dart';
 
 extension SizerExt on num {

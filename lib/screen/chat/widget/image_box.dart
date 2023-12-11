@@ -36,7 +36,6 @@ class ImageBox extends StatelessWidget {
               child: CachedNetworkImage(
                 imageUrl: chatModel!.image.toString(),
                 height: 35.w,
-
                 progressIndicatorBuilder: (con, str, progress) {
                   return Container(
                     height: 35.w,
