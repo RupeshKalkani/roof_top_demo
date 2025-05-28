@@ -47,7 +47,4 @@ class PrefService {
     return prefs.getStringList(key) ?? [];
   }
 
-  static String getUID() {
-    return PrefService.getString(PrefKeys.userUID);
-  }
 }

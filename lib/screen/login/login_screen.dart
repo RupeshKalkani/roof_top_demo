@@ -6,9 +6,7 @@ import 'package:roof_top_demo/common_file/common_textfield.dart';
 import 'package:roof_top_demo/common_file/loaders.dart';
 import 'package:roof_top_demo/common_file/sizer.dart';
 import 'package:roof_top_demo/common_file/style.dart';
-import 'package:roof_top_demo/screen/home/home_screen.dart';
 import 'package:roof_top_demo/screen/login/login_controller.dart';
-import 'package:roof_top_demo/screen/register/register_screen.dart';
 import 'package:roof_top_demo/utils/asset_res.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -40,7 +38,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       const Center(
                         child: Text(
-                          "Welcome to Rooftop",
+                          "Welcome to Movies App",
                           style: TextStyle(
                             fontSize: 35,
                             color: AppColor.white,
@@ -69,22 +67,6 @@ class LoginScreen extends StatelessWidget {
                       SubmitButton(
                           title: "Login", onTap: controller.onLoginTap),
                       const Spacer(),
-                      InkWell(
-                        onTap: controller.onRegisterTap,
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Padding(
-                            padding: EdgeInsets.only(bottom: 10.w, right: 5.w),
-                            child: Text(
-                              "Sign Up",
-                              style: styleW400S25.copyWith(
-                                fontWeight: FontWeight.w500,
-                                color: AppColor.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ),

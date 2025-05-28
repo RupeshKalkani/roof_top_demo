@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:roof_top_demo/screen/home/home_controller.dart';
+import 'package:roof_top_demo/common_file/helpers.dart';
 import 'package:roof_top_demo/screen/home/home_screen.dart';
-import 'package:roof_top_demo/screen/register/register_controller.dart';
-import 'package:roof_top_demo/screen/register/register_screen.dart';
-import 'package:roof_top_demo/service/auth_service.dart';
 
 class LoginController extends GetxController {
   final TextEditingController emailController = TextEditingController();
@@ -23,15 +20,20 @@ class LoginController extends GetxController {
     if (validation()) {
       loader = true;
       update(['loader']);
-      bool result = await AuthService.loginWithCredential(
-        email: emailController.text,
-        pwd: passwordController.text,
-      );
+      bool result = false;
+
+      if (emailController.text != "admin@gmail.com") {
+        showErrorMsg("Email id not exists");
+      } else {
+        if (passwordController.text != "admin") {
+          showErrorMsg("Please enter correct password");
+        } else {
+          result = true;
+        }
+      }
       if (result) {
-        HomeController controller = Get.put(HomeController(), permanent: true);
-        controller.init();
         Get.offAll(
-          () => HomeScreen(),
+          () => const HomeScreen(),
           duration: 1.5.seconds,
           curve: Curves.ease,
         );
@@ -39,16 +41,6 @@ class LoginController extends GetxController {
       loader = false;
       update(['loader']);
     }
-  }
-
-  void onRegisterTap() {
-    RegisterController controller =
-        Get.put(RegisterController(), permanent: true);
-    Get.to(
-      () => RegisterScreen(),
-      duration: 1.5.seconds,
-      curve: Curves.ease,
-    );
   }
 
   bool validation() {

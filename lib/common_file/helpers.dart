@@ -3,7 +3,23 @@ import 'package:get/get.dart';
 
 BuildContext? snackContext;
 
-void showErrorMsg(String msg, {BuildContext? context}) {
+void showErrorMsg(String msg) {
+  Get.snackbar(
+    "Error !!!",
+    msg,
+    duration: 10.seconds,
+    backgroundColor: Colors.red,
+    mainButton: TextButton(
+      onPressed: Get.back,
+      child: const Icon(
+        Icons.close,
+        color: Colors.white,
+      ),
+    ),
+  );
+}
+
+void showCatchMsg(String msg) {
   Get.snackbar(
     "Error !!!",
     msg,
